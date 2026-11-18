@@ -1,0 +1,17 @@
+FROM golang:1.16
+
+EXPOSE 8080
+
+WORKDIR /src/usr/app
+
+COPY code/example-backend .
+
+RUN go build
+
+RUN useradd -m appuser
+
+RUN chown appuser .
+
+USER appuser
+
+CMD ["./server"]
