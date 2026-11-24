@@ -4,6 +4,8 @@ WORKDIR /src/usr/app
 
 COPY code/example-backend .
 
+ENV CGO_ENABLED=0
+
 RUN go build && \
     adduser -D appuser
 
